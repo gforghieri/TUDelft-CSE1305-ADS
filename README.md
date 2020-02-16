@@ -1,5 +1,6 @@
 # TUDelft-CSE1305-ADS
-Algorithms and Data Structures
+
+## Algorithms and Data Structures
 
 Algorithms and data structures are fundamental notions in computer science and knowledge about standard data structures and algorithm is essential for programmers. This course enables the student to
 

@@ -1,5 +1,8 @@
 package week1;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 class Prime {
 
     /**
@@ -40,9 +43,15 @@ class Prime {
      * @return returns the number of prime numbers that are less or equal than n
      */
     public static int numPrimes(int n) {
-
-
-
-
+        int counter = 0;
+        if (n <= 1) {
+            return counter;
+        }
+        for (int i = 2; i <= n; i++) {
+            if (isPrime(i)) {
+                counter++;
+            }
+        }
+        return counter;
     }
 }

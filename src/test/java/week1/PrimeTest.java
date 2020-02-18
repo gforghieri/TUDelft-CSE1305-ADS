@@ -79,9 +79,22 @@ public class PrimeTest {
     }
 
 
-//    @Test
-//    public void checkTotalPNumbers1() {
-//        int res = Prime.numPrimes(10);
-//        assertEquals(4, res);
-//    }
+    @Test
+    public void checkTotalPNumbers1() {
+        int res = Prime.numPrimes(10);
+        assertEquals(4, res);
+    }
+
+    @Test
+    public void checkTotalPNumbersLessThanEqualtoOne() {
+        int res = Prime.numPrimes(-1);
+        assertEquals(0, res);
+    }
+
+    @Test
+    public void checkTotalPNumbersRandomNumber() {
+        int res = Prime.numPrimes(11);
+        assertEquals(5, res);
+    }
+
 }

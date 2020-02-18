@@ -9,7 +9,27 @@ class Prime {
      * @return returns true if n is prime, false otherwise
      */
     public static boolean isPrime(int n) {
-        // TODO
+        // a prime number can only be divided by 1 and itself has to be integer larger than 1
+
+        if (n <= 1) { // 1 and smaller numbers are not prime
+            return false;
+        } else if (n == 2) { // 2 is prime
+            return true;
+        } else if (n % 2 == 0) { // all even numbers besides 2 are not prime
+            return false;
+        }
+        int divisor = 3;
+
+        for (int i = 0; i < 100; i++) {
+            if (divisor * divisor > n) { // if the squared odd divisor is greater than n and n not divisible by
+                // the previous divisor it must be prime
+                return true;
+            } else if (n % divisor == 0) { // if n is divisible by a divisor which is not itself and 1 at this point
+                return false;
+            }
+            divisor += 2;
+        }
+        return false;
     }
 
     /**
@@ -20,6 +40,9 @@ class Prime {
      * @return returns the number of prime numbers that are less or equal than n
      */
     public static int numPrimes(int n) {
-        // TODO
+
+
+
+
     }
 }

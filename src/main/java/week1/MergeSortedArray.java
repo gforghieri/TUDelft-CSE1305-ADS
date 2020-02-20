@@ -51,20 +51,22 @@ class MergeSortedArray {
         int newPositionCounter = 0;
         int oldPositionCounter = 0;
 
-        for (int i = 0; i < Math.min(arr1.length, arr2.length); i++) {
-            oldPositionCounter = i;
-            mergedArray[newPositionCounter] = Math.min(arr1[i], arr2[i]);
-            newPositionCounter++;
-            mergedArray[newPositionCounter] = Math.max(arr1[i], arr2[i]);
-            newPositionCounter++;
-        }
-        oldPositionCounter++;
-
-        for (int i = oldPositionCounter; i < newPositionCounter; i++) {
-            if (Math.max(arr1.length, arr2.length) == arr1.length) {
-                mergedArray[newPositionCounter] = arr1[oldPositionCounter];
-            } else {
-                mergedArray[newPositionCounter] = arr2[oldPositionCounter];
+        for (int i = 0; newPositionCounter < mergedArray.length; i++) {
+            // looping until we reach the end of the smaller array
+            if (i < Math.min(arr1.length, arr2.length)) {
+                mergedArray[newPositionCounter] = Math.min(arr1[i], arr2[i]);
+                newPositionCounter++;
+                mergedArray[newPositionCounter] = Math.max(arr1[i], arr2[i]);
+                newPositionCounter++;
+            }
+            else { // then populate the remaining with the integers of the larger array
+                if (Math.max(arr1.length, arr2.length) == arr1.length) {
+                    mergedArray[newPositionCounter] = arr1[i];
+                    newPositionCounter++;
+                } else {
+                    mergedArray[newPositionCounter] = arr2[i];
+                    newPositionCounter++;
+                }
             }
         }
         return mergedArray;

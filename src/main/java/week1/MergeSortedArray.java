@@ -1,8 +1,5 @@
 package week1;
 
-import java.lang.reflect.Array;
-import java.util.*;
-
 class MergeSortedArray {
 
     /**
@@ -44,32 +41,25 @@ class MergeSortedArray {
             }
             return arrCopy;
         }
-
         // Normal case
-        int[] mergedArray = new int[arr1.length + arr2.length];
+        int arr1Length = arr1.length;
+        int arr2Length = arr2.length;
+        int[] arr3 = new int[arr1Length + arr2Length];
+        int i = 0, j = 0, k = 0;
 
-        int newPositionCounter = 0;
-        int oldPositionCounter = 0;
-
-        for (int i = 0; newPositionCounter < mergedArray.length; i++) {
-            // looping until we reach the end of the smaller array
-            if (i < Math.min(arr1.length, arr2.length)) {
-                mergedArray[newPositionCounter] = Math.min(arr1[i], arr2[i]);
-                newPositionCounter++;
-                mergedArray[newPositionCounter] = Math.max(arr1[i], arr2[i]);
-                newPositionCounter++;
-            }
-            else { // then populate the remaining with the integers of the larger array
-                if (Math.max(arr1.length, arr2.length) == arr1.length) {
-                    mergedArray[newPositionCounter] = arr1[i];
-                    newPositionCounter++;
-                } else {
-                    mergedArray[newPositionCounter] = arr2[i];
-                    newPositionCounter++;
-                }
+        // looping until we reach the end of the smaller array
+        while (i < arr1Length && j < arr2Length) {
+            if (arr1[i] < arr2[j]) {
+                arr3[k++] = arr1[i++];
+            } else {
+                arr3[k++] = arr2[j++];
             }
         }
-        return mergedArray;
+        // populate the new array with the remaining elements of the bigger array
+        while (i < arr1Length) // until we have not reached the end of the first array
+            arr3[k++] = arr1[i++];
+        while (j < arr2Length) // until we have not reached the end of the second array
+            arr3[k++] = arr2[j++];
+        return arr3;
     }
 }
-

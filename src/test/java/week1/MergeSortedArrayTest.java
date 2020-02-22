@@ -14,6 +14,14 @@ public class MergeSortedArrayTest {
         assertArrayEquals(new int[]{1, 2, 2, 3, 4, 5, 6}, arr);
     }
 
+    @Test
+    public void testBig() {
+        int[] arr1 = {1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20};
+        int[] arr2 = {2, 3, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20};
+        int[] arr = MergeSortedArray.merge(arr1, arr2);
+        assertArrayEquals(new int[]{1, 2, 2, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 18, 18, 19, 19, 20, 20}, arr);
+    }
+
     // Exceptional cases.
 
     // if both arrays are null, the result should be null as well.

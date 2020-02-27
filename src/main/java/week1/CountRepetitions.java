@@ -1,5 +1,7 @@
 package week1;
 
+import java.util.Arrays;
+
 public class CountRepetitions {
 
     /**
@@ -18,13 +20,16 @@ public class CountRepetitions {
      * in {0, ..., r})
      */
     public static int[] count(int[] arr, int r) {
-        // Exceptional cases
         // 1. If the input array is null or of length 0, this will return null.
         if (arr == null || arr.length == 0) return null;
 
-        // Normal case
+        // Initialze result array to r+1 because arrays are 0 indexed, so it needs one more than 1...r range
         int[] result = new int[r + 1];
-        for (int x : arr) if (x >= 0 && x < r) result[x]++;
+
+        // loop through the array
+        for (int x : arr)
+            // 2. we filter out negative numbers and 3. include scenarios when x = r
+            if (x >= 0 && x <= r) result[x]++;
         return result;
     }
 }

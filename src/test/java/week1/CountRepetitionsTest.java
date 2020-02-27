@@ -47,4 +47,15 @@ public class CountRepetitionsTest {
         int[] result = {1, 2, 0, 2, 0};
         assertArrayEquals(result, CountRepetitions.count(arr, 4));
     }
+
+    @Test
+    public void testXequalR() {
+        int[] arr = {2};
+        int[] result = {0, 0, 1};
+        assertArrayEquals(result, CountRepetitions.count(arr, 2));
+    }
+
+
+
+
 }

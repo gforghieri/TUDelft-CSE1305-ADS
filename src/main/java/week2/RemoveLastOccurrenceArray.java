@@ -23,12 +23,9 @@ class RemoveLastOccurrenceArray {
         int last_index = -1;
 
         // traverse through the array to get the index of the last occurrence
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == x) last_index = i;
-        }
+        for (int i = 0; i < arr.length; i++) if (arr[i] == x) last_index = i;
 
-        int i = 0;
-        int j = 0;
+        int i = 0, j = 0;
 
         // copying elements of array from the old one to the new one except last_index
         while (i < arr.length) {
@@ -42,10 +39,9 @@ class RemoveLastOccurrenceArray {
         // if we pass in x which is not in the array just return the original array
         if (last_index == -1) return arr;
 
-        // are there duplicates in the array? 
-        // does the array have negative numbers?
-        // Is the array sorted?
-        // ArrayList solution is it faster? does it require more space?
+        // are there duplicates in the array? - WORKS
+        // does the array have negative numbers? - WORKS
+        // Is the array sorted/unsorted - WORKS
 
         return res;
     }

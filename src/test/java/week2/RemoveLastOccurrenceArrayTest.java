@@ -24,4 +24,18 @@ public class RemoveLastOccurrenceArrayTest {
         int[] result = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         assertArrayEquals(result, RemoveLastOccurrenceArray.removeLastOccurrence(10, input));
     }
+
+    @Test
+    public void testPositiveInMiddleDuplicate() {
+        int[] input = {1, 2, 3, 3, 4, 5};
+        int[] result = {1, 2, 3, 4, 5};
+        assertArrayEquals(result, RemoveLastOccurrenceArray.removeLastOccurrence(3, input));
+    }
+
+    @Test
+    public void testNegativeFirst() {
+        int[] input = {-3, -1, 2, -3, 3, 4, 5, 0};
+        int[] result = {-3, -1, 2, 3, 4, 5, 0};
+        assertArrayEquals(result, RemoveLastOccurrenceArray.removeLastOccurrence(-3, input));
+    }
 }

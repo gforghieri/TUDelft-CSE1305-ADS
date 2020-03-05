@@ -38,4 +38,11 @@ public class RemoveLastOccurrenceArrayTest {
         int[] result = {-3, -1, 2, 3, 4, 5, 0};
         assertArrayEquals(result, RemoveLastOccurrenceArray.removeLastOccurrence(-3, input));
     }
+
+    @Test
+    public void testLasttoRemove() {
+        int[] input = {1, 4, 7, 9};
+        int[] result = {1, 4, 7};
+        assertArrayEquals(result, RemoveLastOccurrenceArray.removeLastOccurrence(9, input));
+    }
 }

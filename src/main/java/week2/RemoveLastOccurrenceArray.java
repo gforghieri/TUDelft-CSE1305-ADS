@@ -25,8 +25,9 @@ class RemoveLastOccurrenceArray {
         // traverse through the array to get the index of the last occurrence
         for (int i = 0; i < arr.length; i++) if (arr[i] == x) last_index = i;
 
-        int i = 0, j = 0;
+        if (last_index == -1) return arr;
 
+        int i = 0, j = 0;
         // copying elements of array from the old one to the new one except last_index
         while (i < arr.length) {
             if (i == last_index) {
@@ -35,14 +36,6 @@ class RemoveLastOccurrenceArray {
                 }
             } else res[j++] = arr[i++];
         }
-
-        // if we pass in x which is not in the array just return the original array
-        if (last_index == -1) return arr;
-
-        // are there duplicates in the array? - WORKS
-        // does the array have negative numbers? - WORKS
-        // Is the array sorted/unsorted - WORKS
-
         return res;
     }
 }

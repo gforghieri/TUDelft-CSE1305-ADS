@@ -1,0 +1,3 @@
+Implement the Java method clone, which copies all the double entries in a given two-dimensional array a to a newly created two-dimensional array of the same type and size. This method takes the array a as input and returns the new array with the copied values.
+
+IMPORTANT: You are not allowed to use a library method to clone the array. In an exam setting, your grade would be overridden to 1, if you used a library method instead of implementing the procedure yourself.

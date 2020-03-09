@@ -4,10 +4,15 @@ import static org.junit.Assert.*;
 
 import org.junit.*;
 
+import java.util.Arrays;
+
 public class CloningArraysTest {
     @Test
     public void cloneEmpty() {
         double[][] empty = new double[0][0];
+
+        System.out.println(empty.length);
+
         double[][] clone = CloningArrays.clone(empty);
         assertEquals(empty.length, clone.length);
 
@@ -16,7 +21,9 @@ public class CloningArraysTest {
     @Test
     public void cloneSingle() {
         double[][] array = {{1.5}};
+        System.out.println(array.length);
         double[][] clone = CloningArrays.clone(array);
+
         assertEquals(array.length, clone.length);
         assertEquals(array[0].length, clone[0].length);
         assertEquals(array[0][0], clone[0][0], 0);

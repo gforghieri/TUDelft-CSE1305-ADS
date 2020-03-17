@@ -43,6 +43,11 @@ class DLLImplementation {
         public Node getPrevious() {
             return previous;
         }
+
+//        @Override
+//        public String toString() {
+//            return this.element.toString();
+//        }
     }
 
     // Each object in DLList has one field head, which points to the starting Node of DLList.
@@ -78,9 +83,16 @@ class DLLImplementation {
      * @param e The element to add.
      */
     public void addFirst(Object e) {
-        Node newHead = new Node(e, null, null);
-        head = newHead;
-        tail = newHead;
+        Node newHead;
+        if (size() == 0) {
+            newHead = new Node(e, null, null);
+            head = newHead;
+            tail = newHead;
+        } else {
+            newHead = new Node(e, null, head);
+            head.setPrevious(newHead);
+            head = newHead;
+        }
     }
 
     /**
@@ -89,11 +101,16 @@ class DLLImplementation {
      * @return The element of the head Node. If the list is empty, this method returns null.
      */
     public Object removeFirst() {
-        if (head == null || tail == null) return null;
+        if (size() == 0) return null;
         Object toReturn = head.getElement();
-        this.head = head.getNext();
-        head.getPrevious().setNext(null);
-        head.setPrevious(null);
+        if (head.next == null) {
+            head = null;
+            tail = null;
+        } else {
+            head = head.next;
+            head.getPrevious().setNext(null);
+            head.setPrevious(null);
+        }
         return toReturn;
     }
 
@@ -103,11 +120,16 @@ class DLLImplementation {
      * @param e The element to add.
      */
     public void addLast(Object e) {
-        Node current = head;
-        while (current != null) {
-            current = current.next;
+        if (size() == 0) addFirst(e);
+        else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            Node last = new Node(e, current, null);
+            current.setNext(last);
+            tail = last;
         }
-        Node last = new Node(e, current.previous, null);
     }
 
     /**
@@ -119,7 +141,20 @@ class DLLImplementation {
         if (size() == 0) {
             return null;
         }
-        
+        Node current = head;
+        if (size() == 1) {
+            head = null;
+            tail = null;
+        } else {
+            while (current.next != null) {
+                current = current.next;
+            }
+
+            tail = current.getPrevious();
+            current.setPrevious(null);
+            tail.setNext(null);
+        }
+        return current.getElement();
     }
 
 
@@ -143,10 +178,8 @@ class DLLImplementation {
      * This also means that `addAtPosition(0, e)` has the same effect as `addFirst(e)`.
      * If there is no Node in position pos, this method adds it to the last position.
      *
-     * @param pos
-     *     The position to insert the element at.
-     * @param e
-     *     The element to add.
+     * @param pos The position to insert the element at.
+     * @param e   The element to add.
      */
     public void addAtPosition(int pos, Object e) {
         if (pos == 0) addFirst(e);
@@ -154,34 +187,63 @@ class DLLImplementation {
         else {
             int i = 0;
             Node current = head;
-            while(i < pos) {
+            while (i < pos) {
                 current = current.next;
                 i++;
             }
-            Node toInsert = new Node(e, current.previous; current);
+            Node toInsert = new Node(e, current.previous, current);
             current.previous.setNext(toInsert);
             current.setPrevious(toInsert);
         }
     }
-//
-//    /**
-//     * Remove Node at position pos and return its element.
-//     * The list is zero indexed, so the first element in the list corresponds to position 0.
-//     * This also means that `removeFromPosition(0)` has the same effect as `removeFirst()`.
-//     *
-//     * @param pos
-//     *     The position to remove the Node from.
-//     * @return The element of the Node in position pos. If there is no Node in position pos, this method returns null.
-//     */
-//    public Object removeFromPosition(int pos) {
-//        // TODO
-//    }
-//
-//    /**
-//     * @return A new DLL that contains the elements of the current one in reversed order.
-//     */
-//    public DLLImplementation reverse() {
-//        // TODO
-//    }
+
+    /**
+     * Remove Node at position pos and return its element.
+     * The list is zero indexed, so the first element in the list corresponds to position 0.
+     * This also means that `removeFromPosition(0)` has the same effect as `removeFirst()`.
+     *
+     * @param pos The position to remove the Node from.
+     * @return The element of the Node in position pos. If there is no Node in position pos, this method returns null.
+     */
+    public Object removeFromPosition(int pos) {
+        if (pos == 0) return removeFirst();
+        if (pos > size() - 1 || pos < 0) return null;
+        if (pos == size() - 1) return removeLast();
+        int i = 0;
+        Node current = head;
+        while (i < pos) {
+            current = current.next;
+            i++;
+        }
+        current.getPrevious().setNext(current.getNext());
+        current.getNext().setPrevious(current.getPrevious());
+        return current.getElement();
     }
+
+    /**
+     * @return A new DLL that contains the elements of the current one in reversed order.
+     */
+    public DLLImplementation reverse() {
+        if (size() == 0) return null;
+        DLLImplementation newDLL = new DLLImplementation();
+        // custom addFirst
+        Node current = head;
+        Node newHead = new Node (current.getElement(), null, null);
+        Node temp = newHead;
+        for (int i = 0; i < size(); i++) {
+            if (newDLL.size() == 0) {
+                newDLL.head = newHead;
+                newDLL.tail = newHead;
+                current = current.next;
+            } else {
+                newHead = new Node(current.getElement(), null, temp);
+                temp.setPrevious(newHead);
+                newDLL.head = newHead;
+                current = current.next;
+                temp = newHead;
+            }
+        }
+        return newDLL;
+    }
+}
 

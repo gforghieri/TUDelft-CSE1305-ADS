@@ -1,6 +1,6 @@
 # Algorithms and Data Structures
 
-Algorithms and data structures are fundamental notions in computer science and knowledge about standard data structures and algorithm is essential for programmers. This course enables the student to
+Algorithms and data structures are fundamental notions in computer science and knowledge about standard data structures and algorithm is essential for programmers. This course enables the student to:
 
 understand, explain, and implement standard data structures,
 understand, explain, and implement standard algorithms,

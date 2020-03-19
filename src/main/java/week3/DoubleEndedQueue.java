@@ -24,16 +24,16 @@ class DoubleEndedQueue<T> implements Deque<T> {
      * @return the number of elements in the queue.
      */
     @Override
-    public int size() {
-        // TODO
+    public int size() { // y
+        return list.size();
     }
 
     /**
      * @return true iff the queue contains no elements.
      */
     @Override
-    public boolean isEmpty() {
-        // TODO
+    public boolean isEmpty() { // y
+        return list.isEmpty();
     }
 
     /**
@@ -42,8 +42,9 @@ class DoubleEndedQueue<T> implements Deque<T> {
      *     iff the queue is empty
      */
     @Override
-    public T getFirst() throws EmptyDequeException {
-        // TODO
+    public T getFirst() throws EmptyDequeException { // y
+        if (list.getFirst() == null) throw new EmptyDequeException();
+        return list.getFirst().getElement();
     }
 
     /**
@@ -52,8 +53,9 @@ class DoubleEndedQueue<T> implements Deque<T> {
      *     iff the queue is empty
      */
     @Override
-    public T getLast() throws EmptyDequeException {
-        // TODO
+    public T getLast() throws EmptyDequeException { // y
+        if (list.getLast() == null) throw new EmptyDequeException();
+        return list.getLast().getElement();
     }
 
     /**
@@ -63,8 +65,8 @@ class DoubleEndedQueue<T> implements Deque<T> {
      *     to add.
      */
     @Override
-    public void addFirst(T element) {
-        // TODO
+    public void addFirst(T element) { // y
+        list.addFirst(element);
     }
 
     /**
@@ -74,8 +76,8 @@ class DoubleEndedQueue<T> implements Deque<T> {
      *     to add.
      */
     @Override
-    public void addLast(T element) {
-        // TODO
+    public void addLast(T element) { // y
+        list.addLast(element);
     }
 
     /**
@@ -87,7 +89,10 @@ class DoubleEndedQueue<T> implements Deque<T> {
      */
     @Override
     public T removeFirst() throws EmptyDequeException {
-        // TODO
+        if (list.size() == 0) throw new EmptyDequeException();
+        T res = list.remove(list.getFirst());
+        if (res == null) throw new EmptyDequeException();
+        return res;
     }
 
     /**
@@ -99,7 +104,10 @@ class DoubleEndedQueue<T> implements Deque<T> {
      */
     @Override
     public T removeLast() throws EmptyDequeException {
-        // TODO
+        if (list.size() == 0) throw new EmptyDequeException();
+        T res = list.remove(list.getLast());
+        if (res == null) throw new EmptyDequeException();
+        return res;
     }
 }
 

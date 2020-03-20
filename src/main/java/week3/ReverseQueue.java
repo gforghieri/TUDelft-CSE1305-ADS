@@ -1,7 +1,7 @@
 package week3;
 import java.util.*;
 
-abstract class ReverseQueue<T> implements Queue<T> {
+abstract class ReverseQueue<T> implements StackToQueue<T> {
     /**
      * Reverses the queue itself. NB: This method should be recursive.
      */
@@ -22,7 +22,7 @@ abstract class ReverseQueue<T> implements Queue<T> {
  * @param <T>
  *     Type of elements the queue can hold
  */
-interface Queue<T> {
+interface StackToQueue<T> {
     /**
      * @return true iff it contains no elements.
      */

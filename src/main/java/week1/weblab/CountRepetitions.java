@@ -1,4 +1,4 @@
-package week1;
+package week1.weblab;
 
 import java.util.Arrays;
 

@@ -1,4 +1,4 @@
-package week1;
+package week1.weblab;
 
 import static org.junit.Assert.*;
 
@@ -7,7 +7,7 @@ import org.junit.*;
 public class RecursiveMultiplicationTest {
     @Test
     public void mp() {
-        assertEquals(30, RecursiveMultiplication.multiply(6, 5));
+        Assert.assertEquals(30, RecursiveMultiplication.multiply(6, 5));
     }
 
     @Test

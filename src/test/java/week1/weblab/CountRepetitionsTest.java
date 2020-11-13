@@ -1,6 +1,7 @@
-package week1;
+package week1.weblab;
 
 import org.junit.Test;
+import week1.weblab.CountRepetitions;
 
 import static org.junit.Assert.assertArrayEquals;
 

@@ -1,4 +1,4 @@
-package week1;
+package week1.weblab;
 
 /**
  * Be recursive, that is, calculate the result using recursion; Not use the multiplication operator.

@@ -1,8 +1,9 @@
-package week1;
+package week1.weblab;
 
 import static org.junit.Assert.*;
 
 import org.junit.*;
+import week1.MergeSortedArray;
 
 public class MergeSortedArrayTest {
 

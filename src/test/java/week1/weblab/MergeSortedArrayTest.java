@@ -3,7 +3,7 @@ package week1.weblab;
 import static org.junit.Assert.*;
 
 import org.junit.*;
-import week1.MergeSortedArray;
+import week1.weblab.MergeSortedArray;
 
 public class MergeSortedArrayTest {
 

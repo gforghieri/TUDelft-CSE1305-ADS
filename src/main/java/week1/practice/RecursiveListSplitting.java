@@ -13,7 +13,7 @@ public class RecursiveListSplitting {
         List<Integer> b = new ArrayList<>();
         List[] splitLists = {a, b};
         int splitVal = 50;
-        int i = 0;
+        int i = skillRatings.size() / 2;
         splitLists = splitListRecur(skillRatings, splitLists, splitVal, i);
 
         System.out.println(splitLists[0]);
@@ -21,11 +21,14 @@ public class RecursiveListSplitting {
     }
 
     public static List[] splitListRecur(List<Integer> skillRatings, List[] splitLists, int splitVal, int i) {
-        if (skillRatings.get(i) >= splitVal) {
-            splitLists[0] = skillRatings.subList(0, i);
-            splitLists[1] = (skillRatings.subList(i, skillRatings.size() - 1));
-            return splitLists;
+        if ((splitLists[0].size() + splitLists[1].size()) == skillRatings.size()) return splitLists;
+        else if (skillRatings.get(i) > splitVal) {
+            splitLists[1] = (skillRatings.subList(i, skillRatings.size()));
+            return splitListRecur(skillRatings, splitLists, splitVal, i - 1);
+        } else if (skillRatings.get(i) <= splitVal) {
+            splitLists[0] = skillRatings.subList(0, i+1);
+            return splitListRecur(skillRatings, splitLists, splitVal, i + 1);
         }
-        return splitListRecur(skillRatings, splitLists, splitVal, i + 1);
+        return splitLists;
     }
 }

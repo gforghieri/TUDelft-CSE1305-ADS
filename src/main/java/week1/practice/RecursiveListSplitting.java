@@ -13,21 +13,25 @@ public class RecursiveListSplitting {
         List<Integer> b = new ArrayList<>();
         List[] splitLists = {a, b};
         int splitVal = 50;
-        int i = skillRatings.size() / 2;
-        splitLists = splitListRecur(skillRatings, splitLists, splitVal, i);
+        int low = 0;
+        int high = skillRatings.size() - 1;
+        splitLists = splitListRecur(skillRatings, splitLists, low, high, splitVal);
 
         System.out.println(splitLists[0]);
         System.out.println(splitLists[1]);
     }
 
-    public static List[] splitListRecur(List<Integer> skillRatings, List[] splitLists, int splitVal, int i) {
-        if ((splitLists[0].size() + splitLists[1].size()) == skillRatings.size()) return splitLists;
-        else if (skillRatings.get(i) > splitVal) {
-            splitLists[1] = (skillRatings.subList(i, skillRatings.size()));
-            return splitListRecur(skillRatings, splitLists, splitVal, i - 1);
-        } else if (skillRatings.get(i) <= splitVal) {
-            splitLists[0] = skillRatings.subList(0, i+1);
-            return splitListRecur(skillRatings, splitLists, splitVal, i + 1);
+    public static List[] splitListRecur(List<Integer> skillRatings, List[] splitLists, int low, int high, int splitVal) {
+        if (low == high) {
+            splitLists[0] = skillRatings.subList(0, low);
+            splitLists[1] = skillRatings.subList(low, skillRatings.size());
+            return splitLists;
+        }
+        int mid = (low + high) / 2;
+        if (skillRatings.get(mid) < splitVal) {
+            return splitListRecur(skillRatings, splitLists, mid+1, high,splitVal);
+        } else if (skillRatings.get(mid)  >= splitVal) {
+            return splitListRecur(skillRatings, splitLists, low, mid, splitVal);
         }
         return splitLists;
     }

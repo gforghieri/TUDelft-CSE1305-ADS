@@ -1,7 +1,7 @@
 public class FibTailRec {
 
     public static void main(String[] args) {
-        int result = fibTailRec(9, 3, 1, 1);
+        int result = fibTailRec(7, 1, 1, 1);
         System.out.println(result);
     }
 

@@ -1,3 +1,5 @@
+package AdditionalPractice;
+
 public class FactorialLoop {
 
     public static void main(String[] args) {

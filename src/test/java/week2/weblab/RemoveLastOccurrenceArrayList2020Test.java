@@ -16,5 +16,13 @@ public class RemoveLastOccurrenceArrayList2020Test {
         RemoveLastOccurrenceArrayList2020.removeLastOccurrence(1, input);
         assertEquals(result, input);
     }
+
+    @Test
+    public void testRemoveAll() {
+        ArrayList<Integer> input = new ArrayList<>(asList(1, 1, 3, 5, 7, 1, 5, 9, 1));
+        ArrayList<Integer> result = new ArrayList<>();
+        RemoveLastOccurrenceArrayList2020.removeAll(input);
+        assertEquals(result, input);
+    }
 }
 

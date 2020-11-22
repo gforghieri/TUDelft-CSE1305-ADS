@@ -1,4 +1,4 @@
-package week2;
+package week2.weblab;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,6 +7,7 @@ import static java.util.Arrays.*;
 import static org.junit.Assert.*;
 
 import org.junit.*;
+import week2.weblab.RemoveLastOccurrenceArrayList;
 
 public class RemoveLastOccurenceArrayListTest {
 

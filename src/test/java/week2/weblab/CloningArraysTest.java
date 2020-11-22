@@ -1,10 +1,9 @@
-package week2;
+package week2.weblab;
 
 import static org.junit.Assert.*;
 
 import org.junit.*;
-
-import java.util.Arrays;
+import week2.weblab.CloningArrays;
 
 public class CloningArraysTest {
     @Test

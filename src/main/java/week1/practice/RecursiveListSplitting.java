@@ -7,7 +7,7 @@ import java.util.*;
 public class RecursiveListSplitting {
 
     public static void main(String[] args) {
-        List<Integer> skillRatings = new ArrayList<>(List.of(25, 67, 98, 76, 55, 12, 67, 88, 34, 72, 65, 63, 42));
+        List<Integer> skillRatings = new ArrayList<Integer>(Arrays.asList(25, 67, 98, 76, 55, 12, 67, 88, 34, 72, 65, 63, 42));
         Collections.sort(skillRatings);
         List<Integer> a = new ArrayList<>();
         List<Integer> b = new ArrayList<>();

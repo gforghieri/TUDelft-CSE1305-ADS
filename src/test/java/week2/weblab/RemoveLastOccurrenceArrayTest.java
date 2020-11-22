@@ -1,8 +1,9 @@
-package week2;
+package week2.weblab;
 
 import static org.junit.Assert.*;
 
 import org.junit.*;
+import week2.weblab.RemoveLastOccurrenceArray;
 
 public class RemoveLastOccurrenceArrayTest {
     @Test
